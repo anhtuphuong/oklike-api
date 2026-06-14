@@ -11,7 +11,7 @@ return [
     'db' => [
         'host' => '127.0.0.1',
         'port' => 3306,
-        'name' => 'oklike_api',
+        'name' => 'oklike_shop',
         'user' => 'root',
         'pass' => '',
         'charset' => 'utf8mb4',

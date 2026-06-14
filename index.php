@@ -79,7 +79,7 @@ function buildServiceCatalog(array $config, SmmTgClient $client): array
             continue;
         }
 
-        if (!array_key_exists('rate_per_1000', $svc) || $svc['rate_per_1000'] === null || $svc['rate_per_1000'] === '') {
+        if (!array_key_exists('rate_per_1000', $svc) || $svc['rate_per_1000'] === null) {
             $needsPricing = true;
             break;
         }
@@ -105,7 +105,7 @@ function buildServiceCatalog(array $config, SmmTgClient $client): array
         $pricingRow = $pricingByService[$serviceId] ?? [];
 
         $baseRate = $svc['rate_per_1000'] ?? $pricingRow['price_per_1000'] ?? $pricingRow['rate_per_1000'] ?? $pricingRow['rate'] ?? null;
-        if ($baseRate === null || $baseRate === '') {
+        if ($baseRate === null) {
             continue;
         }
 
@@ -219,7 +219,7 @@ try {
             }
 
             $result = [];
-            $orderIds = array_filter(array_map('trim', explode(',', $orders)), static fn (string $value): bool => $value !== '');
+            $orderIds = array_filter(array_map('trim', explode(',', $orders)));
 
             foreach ($orderIds as $orderIdRaw) {
                 $v2OrderId = (int)$orderIdRaw;
