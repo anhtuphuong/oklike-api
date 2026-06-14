@@ -181,7 +181,7 @@ try {
             }
 
             $smmOrderId = $client->createOrder($serviceId, $link, $quantity, (int)$service['time_leave']);
-            $charge = round(((float)$service['rate_per_1000'] * $quantity) / 1000, 6);
+            $charge = round(((float)$service['rate_per_1000'] * (float)$quantity) / 1000, 6);
 
             $db = new Db($config['db'] ?? []);
             $localOrderId = $db->insertOrder($serviceId, $link, $quantity, $smmOrderId, $charge);

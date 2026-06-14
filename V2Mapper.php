@@ -105,7 +105,7 @@ final class V2Mapper
             return 'In progress';
         }
 
-        if ($pending > 0 && $inProgress === 0 && $completed === 0 && $partial === 0 && $canceled === 0) {
+        if ($pending === $total) {
             return 'Pending';
         }
 
